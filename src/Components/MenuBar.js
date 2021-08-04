@@ -1,12 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Dropdown, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/auth';
+import axios from 'axios';
 
 export default function MenuBar(props) {
     const { user, logout } = useContext(AuthContext);
-
-
+    const [username, setUsername] = useState();
+    useEffect(() => {
+        axios.get(`http://localhost:4000/${user.id}`, {
+            headers: { "Authorization": `Bearer ${localStorage.getItem('token')}`}
+        })
+        .then(response => {
+            setUsername(response.data.username);
+            console.log(response.data);
+        })
+        .catch(error => console.log(error));
+    }, [props.update]);
     return (
         <div>
             <Menu attached='top'>
@@ -30,7 +40,7 @@ export default function MenuBar(props) {
                     </Dropdown.Menu>
                 </Dropdown>
                 <Menu.Item 
-                    name={`Welcome ${user.username}`}
+                    name={`Welcome ${username}`}
                     as={Link}
                     to={'/home'}
                     onClick={() => console.log(user)}

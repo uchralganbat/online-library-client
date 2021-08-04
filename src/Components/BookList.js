@@ -32,7 +32,7 @@ export default function BookList(props) {
                 }).map(
                     book => 
                     <Item key={book.id}>
-                    <Item.Image size='small' src='https://react.semantic-ui.com/images/wireframe/image.png' />
+                    <Item.Image size='small' src='https://storage.cloud.google.com/online_library-1/tokyo_matrix.jpg' />
                     <Item.Content verticalAlign='middle'>
                         <Item.Header>{book.bookname}</Item.Header>
                         <Item.Description>{book.Author.firstName}</Item.Description>

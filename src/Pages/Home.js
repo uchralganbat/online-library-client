@@ -10,7 +10,7 @@ export default function Home() {
         setSuccess(success + 1);
     }
     const [searchTerm, setSearchTerm ] = useState('')
-
+    
     return (
         <div>
             <MenuBar setSearchTerm={setSearchTerm}/>

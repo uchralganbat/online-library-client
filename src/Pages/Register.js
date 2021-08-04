@@ -3,7 +3,6 @@ import { Button, Form, Icon } from 'semantic-ui-react';
 import axios from 'axios';
 import { useForm } from '../Util/hooks';
 import { AuthContext } from '../Context/auth';
-// import { Link } from 'react-router-dom';
 
 function Register(props) {
     const context = useContext(AuthContext);
@@ -49,7 +48,6 @@ function Register(props) {
     function handelRegisterCallback () {
         handleRegister();
     }
-    console.log(values);
     return (
         <div className="form-container">
             <Icon name='book' color='blue' size='huge'/>

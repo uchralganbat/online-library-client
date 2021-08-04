@@ -9,10 +9,11 @@ import { Container } from 'semantic-ui-react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './Context/auth';
 import { AuthRoute, ProtectedRoute} from './Util/AuthRoute';
+import Footer from './Components/Footer';
 
 function App() {
   return (
-    <AuthProvider>  
+    <AuthProvider>
       <Router>
         <Container>
           <AuthRoute exact path='/home' component={Home} />
